@@ -4,6 +4,7 @@ metadata:
   name: winserver-iis
   labels:
     app: winserver-iis
+    version: VM2
     app.kubernetes.io/part-of: dotnet-modernization
     vm.kubevirt.io/template: windows2k22-server-medium
     vm.kubevirt.io/template.namespace: openshift
@@ -38,9 +39,11 @@ spec:
         vm.kubevirt.io/flavor: medium
         vm.kubevirt.io/os: windows2k22
         vm.kubevirt.io/workload: server
+        sidecar.istio.io/inject: "true"
       labels:
         kubevirt.io/domain: winserver-iis
         kubevirt.io/size: medium
+        version: VM2
     spec:
       architecture: amd64
       domain:
